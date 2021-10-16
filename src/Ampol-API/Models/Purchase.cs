@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Ampol_API.Models
 {
@@ -6,7 +7,7 @@ namespace Ampol_API.Models
     {
         public string CustomerId { get; set; }
         public string LoyaltyCard { get; set; }
-        public string TransactionDate { get; set; }
+        public DateTime TransactionDate { get; set; }
         public IEnumerable<Basket> Baskets { get; set; }
     }
 
