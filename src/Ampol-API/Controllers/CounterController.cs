@@ -28,7 +28,7 @@ namespace Ampol_API.Controllers
 
             var receipt = _counterSerivce.Checkout(purchase);
 
-            return Ok(new { receipt });
+            return Ok(receipt);
         }
     }
 }
