@@ -1,5 +1,6 @@
 ﻿using System;
 using Ampol_API.Entities;
+using System.Globalization;
 using System.Collections.Generic;
 
 namespace Ampol_API.Data
@@ -20,15 +21,15 @@ namespace Ampol_API.Data
 
         private readonly IList<PointsPromotion> _pointsPromotion = new List<PointsPromotion>()
         {
-            new PointsPromotion("PPD01", "New Year Promo", new DateTime(2020-01-01), new DateTime(2020-01-30),  "Any", 2),
-            new PointsPromotion("PPD02", "Fuel Promo", new DateTime(2020-02-05), new DateTime(2020-02-15), "Fuel", 3),
-            new PointsPromotion("PPD03", "Shop Promo", new DateTime(2020-03-01),new DateTime(2020-03-20), "Shop", 4)
+            new PointsPromotion("PPD01", "New Year Promo", DateTime.ParseExact("20200101", "yyyyMMdd", CultureInfo.InvariantCulture), DateTime.ParseExact("20200130", "yyyyMMdd", CultureInfo.InvariantCulture),  "Any", 2),
+            new PointsPromotion("PPD02", "Fuel Promo", DateTime.ParseExact("20200205", "yyyyMMdd", CultureInfo.InvariantCulture), DateTime.ParseExact("20200215", "yyyyMMdd", CultureInfo.InvariantCulture), "Fuel", 3),
+            new PointsPromotion("PPD03", "Shop Promo", DateTime.ParseExact("20200301", "yyyyMMdd", CultureInfo.InvariantCulture),DateTime.ParseExact("20200302", "yyyyMMdd", CultureInfo.InvariantCulture), "Shop", 4)
         };
 
         private readonly IList<DiscountPromotion> _discountPromotion = new List<DiscountPromotion>()
         {
-            new DiscountPromotion("DP001", "Fuel Discount Promo", new DateTime(2020-01-01), new DateTime(2020-02-15), 0.2M),
-            new DiscountPromotion("DP002", "Happy Promo", new DateTime(2020-03-01), new DateTime(2020-03-20), 0.15M)
+            new DiscountPromotion("DP001", "Fuel Discount Promo", DateTime.ParseExact("20200101", "yyyyMMdd", CultureInfo.InvariantCulture), DateTime.ParseExact("20200215", "yyyyMMdd", CultureInfo.InvariantCulture), 0.2M),
+            new DiscountPromotion("DP002", "Happy Promo", DateTime.ParseExact("20200301", "yyyyMMdd", CultureInfo.InvariantCulture), DateTime.ParseExact("20200320", "yyyyMMdd", CultureInfo.InvariantCulture), 0.15M)
         };
 
         private readonly IList<DiscountPromotionProduct> _discountPromotionProducts = new List<DiscountPromotionProduct>()

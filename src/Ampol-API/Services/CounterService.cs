@@ -43,11 +43,11 @@ namespace Ampol_API.Services
                 return 0;
             }
 
-            var matchPromotion = pointsPromotion.Where(pp => pp.Category == product.Category)
-                                        .Where(pp => pp.StartDate >= date && pp.EndDate <= date)
-                                         // Only one oints promo can run so take the highest by default
-                                         .OrderByDescending(pp => pp.PointsPerDollar)
-                                        .SingleOrDefault();
+            var matchPromotion = pointsPromotion.Where(pp => pp.Category == "Any" || pp.Category == product.Category)
+                                                .Where(pp => pp.StartDate <= date && pp.EndDate >= date)
+                                                 // Only one oints promo can run so take the highest by default
+                                                 .OrderByDescending(pp => pp.PointsPerDollar)
+                                                .SingleOrDefault();
 
             if (matchPromotion == default)
             {
@@ -72,8 +72,8 @@ namespace Ampol_API.Services
             }
 
             var matchPromotion = discountPromotion.Where(dp => matchPromotionProducts.Any(mpp => mpp.DiscountPromotionId == dp.Id))
-                                                  .Where(dp => dp.StartDate >= date && dp.EndDate <= date)
-                                                 // Only one oints promo can run so take the highest by default
+                                                  .Where(dp => dp.StartDate <= date && dp.EndDate >= date)
+                                                   // Only one oints promo can run so take the highest by default
                                                   .OrderByDescending(dp => dp.Percentage)
                                                   .SingleOrDefault();
 
