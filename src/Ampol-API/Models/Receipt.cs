@@ -14,5 +14,16 @@ namespace Ampol_API.Models
         public decimal DiscountApplied { get; set; }
         public decimal GrandTotal { get; set; }
         public int PointsEarned { get; set; }
+
+        public Receipt(string customerId, string loyaltyCard, string transactionDate, decimal totalAmount, decimal discountApplied, decimal grandTotal, int pointsEarned)
+        {
+            CustomerId = customerId;
+            LoyaltyCard = loyaltyCard;
+            TransactionDate = transactionDate;
+            TotalAmount = totalAmount;
+            DiscountApplied = discountApplied;
+            GrandTotal = grandTotal;
+            PointsEarned = pointsEarned;
+        }
     }
 }

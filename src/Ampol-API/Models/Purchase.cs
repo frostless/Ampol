@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Ampol_API.Models
 {
@@ -10,7 +7,7 @@ namespace Ampol_API.Models
         public string CustomerId { get; set; }
         public string LoyaltyCard { get; set; }
         public string TransactionDate { get; set; }
-        public Basket Baskets { get; set; }
+        public IEnumerable<Basket> Baskets { get; set; }
     }
 
     public class Basket
@@ -18,5 +15,7 @@ namespace Ampol_API.Models
         public string ProductId { get; set; }
         public decimal UnitPrice { get; set; }
         public int Quantity { get; set; }
+
+        public decimal TotalPrice => UnitPrice * Quantity;
     }
 }
