@@ -8,7 +8,7 @@ namespace Ampol_API.Controllers
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
-    public class CounterController
+    public class CounterController : Controller
     {
         private readonly ILogger<CounterController> _logger;
         private readonly ICounterService _counterSerivce;
@@ -20,9 +20,15 @@ namespace Ampol_API.Controllers
         }
 
         [HttpPost]
-        public Receipt Checkout(Purchase purchase)
+        public IActionResult Checkout(Purchase purchase)
         {
-            return _counterSerivce.Checkout(purchase);
+            if (purchase == null) return BadRequest();
+
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var receipt = _counterSerivce.Checkout(purchase);
+
+            return Ok(new { receipt });
         }
     }
 }
