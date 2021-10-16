@@ -47,7 +47,7 @@ namespace Ampol_API.Services
                                                 .Where(pp => pp.StartDate <= date && pp.EndDate >= date)
                                                  // Only one oints promo can run so take the highest by default
                                                  .OrderByDescending(pp => pp.PointsPerDollar)
-                                                .SingleOrDefault();
+                                                 .FirstOrDefault();
 
             if (matchPromotion == default)
             {
@@ -75,7 +75,7 @@ namespace Ampol_API.Services
                                                   .Where(dp => dp.StartDate <= date && dp.EndDate >= date)
                                                    // Only one oints promo can run so take the highest by default
                                                   .OrderByDescending(dp => dp.Percentage)
-                                                  .SingleOrDefault();
+                                                  .FirstOrDefault();
 
             if (matchPromotion == default)
             {
