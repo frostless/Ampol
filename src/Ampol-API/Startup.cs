@@ -1,3 +1,5 @@
+using Ampol_API.Data;
+using Ampol_API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +27,6 @@ namespace Ampol_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -41,6 +42,9 @@ namespace Ampol_API
                 // Advertise the API versions supported for the particular endpoint
                 config.ReportApiVersions = true;
             });
+
+            services.AddSingleton<DataContext>();
+            services.AddScoped<ICounterService, CounterService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

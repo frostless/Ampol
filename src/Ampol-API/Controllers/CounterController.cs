@@ -19,7 +19,7 @@ namespace Ampol_API.Controllers
             _counterSerivce = counterSerivce;
         }
 
-        [HttpPost]
+        [HttpPost("Checkout")]
         public IActionResult Checkout(Purchase purchase)
         {
             if (purchase == null) return BadRequest();
