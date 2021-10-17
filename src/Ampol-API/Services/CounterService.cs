@@ -45,7 +45,7 @@ namespace Ampol_API.Services
 
             var matchPromotion = pointsPromotion.Where(pp => pp.Category == "Any" || pp.Category == product.Category)
                                                 .Where(pp => pp.StartDate <= date && pp.EndDate >= date)
-                                                 // Only one oints promo can run so take the highest by default
+                                                 // Only one points promo can run so take the highest by default
                                                  .OrderByDescending(pp => pp.PointsPerDollar)
                                                  .FirstOrDefault();
 
@@ -73,7 +73,7 @@ namespace Ampol_API.Services
 
             var matchPromotion = discountPromotion.Where(dp => matchPromotionProducts.Any(mpp => mpp.DiscountPromotionId == dp.Id))
                                                   .Where(dp => dp.StartDate <= date && dp.EndDate >= date)
-                                                   // Only one oints promo can run so take the highest by default
+                                                   // Only one points promo can run so take the highest by default
                                                   .OrderByDescending(dp => dp.Percentage)
                                                   .FirstOrDefault();
 
