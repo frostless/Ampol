@@ -5,6 +5,10 @@ using System.Collections.Generic;
 
 namespace Ampol_API.Data
 {
+    /// <summary>
+    /// For simplicity, this class is to generate hard-coded data for demo or testing purpose. In prod it should be replaced by
+    /// a data layer such as an ORM like entity framework or something similar
+    /// </summary>
     public class DataContext
     {
         private readonly IList<Product> _products = new List<Product>()
