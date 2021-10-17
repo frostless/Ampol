@@ -38,22 +38,22 @@ namespace Ampol_API.Data
             new DiscountPromotionProduct("DP002", "PRD02")
         };
 
-        public IList<Product> GetProducts()
+        public virtual IList<Product> GetProducts()
         {
             return _products;
         }
 
-        public IList<PointsPromotion> GetPointsPromotion()
+        public virtual IList<PointsPromotion> GetPointsPromotion()
         {
             return _pointsPromotion;
         }
 
-        public IList<DiscountPromotion> GetDiscountPromotion()
+        public virtual IList<DiscountPromotion> GetDiscountPromotion()
         {
             return _discountPromotion;
         }
 
-        public IList<DiscountPromotionProduct> GetDiscountPromotionProducts()
+        public virtual IList<DiscountPromotionProduct> GetDiscountPromotionProducts()
         {
             return _discountPromotionProducts;
         }
